@@ -4,10 +4,6 @@ from django.template import loader
 from .models import Member
 
 
-# def members(request):
-
-#     template = loader.get_template('header.html')
-#     return HttpResponse(template.render())
 
 def members(request):
   mymembers = Member.objects.all().values()
@@ -30,9 +26,3 @@ def main(request):
   template = loader.get_template('main.html')
   return HttpResponse(template.render())
 
-def testing(request):
-  template = loader.get_template('template.html')
-  context = {
-    'fruits': ['Apple', 'Banana', 'Cherry'],   
-  }
-  return HttpResponse(template.render(context, request))
